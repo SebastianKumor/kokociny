@@ -1,4 +1,8 @@
 
 public class Stav {
-//si kokot
+
+	public static void main(String[] args) {
+		System.out.println("KokOt si");
+	}
+
 }
