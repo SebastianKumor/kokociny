@@ -33,7 +33,7 @@ public class Projektant extends Composite {
 		btnNewButton.setText("Projektujem");
 		
 		Button btnNewButton_1 = new Button(this, SWT.NONE);
-		btnNewButton_1.setBounds(268, 110, 86, 81);
+		btnNewButton_1.setBounds(262, 110, 92, 81);
 		btnNewButton_1.setText("Projekt Hotovy");
 
 	}
