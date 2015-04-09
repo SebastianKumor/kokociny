@@ -1,6 +1,6 @@
 
 package okinko;
-
+import javaModel.Stav;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -70,7 +70,17 @@ public class GUI extends JFrame {
 */
 
 public class GUI extends JFrame {
-	private JButton quitButton = new JButton("Quit");
+	private JButton projektujem = new JButton("Projektujem");
+	private JButton photovy = new JButton("Projekt Hotovy");
+	//private Stav stav;
+	
+public Stav()	
+{
+	
+
+}
+
+
 	//private JTextField zliObri = new JTextField(3);
 	//private JTextField plachiObri = new JTextField(3);
 	//private JLabel statocniRytieriOzn = new JLabel("Statocni rytieri");
@@ -82,14 +92,18 @@ public GUI () {
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setTitle("Najsamlepsi Gui evah");
 
-	add(quitButton);
+	add(photovy);
+	add(projektujem);
 
 	pack();
 
-	quitButton.addActionListener(new ActionListener() {
+	projektujem.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent event) {
-			System.exit(0);
+				 
+			System.out.println(stav.getIsFinished());
+			
+			;
 		}
 	});
 }
