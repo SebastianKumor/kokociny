@@ -1,0 +1,152 @@
+package rozhranie;
+
+import java.awt.*;
+import java.awt.event.*;
+
+import javax.swing.*;
+
+
+public class HlavneOkno extends JFrame{
+	
+	private JFrame frame;
+	private JLabel AktZamestnanec = new JLabel("Vyberte napln vasho pracovneho pomeru");
+	private JButton Projektant = new JButton("Projektant");
+	private JButton Kontrolor = new JButton("Kontrolor");
+	private JButton Realizator = new JButton("Realizator");
+	private JButton Instalater = new JButton("Instalater");
+	private JButton projektujem = new JButton("Projektujem");
+	private JButton photovy = new JButton("Projekt Hotovy");
+	private JButton kontrolaN = new JButton("Projekt kontrolou nepresiel");
+	private JButton kontrolaA = new JButton("Projekt kontrolou presiel");
+	private JButton zacala = new JButton("Realizacia Prebieha");
+	private JButton hotovo = new JButton("Projekt je zrealizovany");
+	private JButton neuspech = new JButton("Projekt este nebol uvedeny do prevadzky");
+	private JButton zapojeny = new JButton("Projekt bol uvedeny do prevadzky");
+	private JPanel hlavneOkno;
+	private JPanel projektant;
+	private JPanel kontrola;
+	private JPanel realizacia;
+	private JPanel prevadzka;
+	//private JTextField textField;
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			
+			public void run() 
+			{
+				HlavneOkno guic = new HlavneOkno();
+				guic.setVisible(true);
+			}
+		});
+	}
+
+	//private JButton Quit = new JButton("Vypni Program");
+	
+
+	private void okno() {
+	
+	frame.setLayout(new GridLayout(5,4,5,10));
+	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	frame.setTitle("Electricus");
+	frame.setSize(300,400);
+
+	JPanel hlavneMenu = new JPanel();
+	frame.getContentPane().add(hlavneMenu, "Electricus");
+	hlavneMenu.setLayout(null);
+	
+	hlavneMenu.add(AktZamestnanec);
+	hlavneMenu.add(Projektant);
+	hlavneMenu.add(Kontrolor);
+	hlavneMenu.add(Realizator);
+	hlavneMenu.add(Instalater);
+	
+	Projektant.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent arg0)
+		{
+			projektant.setVisible(true);
+			hlavneOkno.setVisible(false);
+			kontrola.setVisible(false);
+			realizacia.setVisible(false);
+			prevadzka.setVisible(false);
+		}
+	});
+	
+	JPanel projektant = new JPanel();
+	frame.getContentPane().add(projektant, "Projektant");
+	projektant.add(projektujem);
+	projektant.add(photovy);
+	
+	JPanel kontrolor = new JPanel();
+	frame.getContentPane().add(kontrolor, "Kontrolor");
+	kontrolor.add(kontrolaN);
+	kontrolor.add(kontrolaA);
+	
+	JPanel realizacia = new JPanel();
+	frame.getContentPane().add(realizacia, "Realizacia");
+	realizacia.add(zacala);
+	realizacia.add(hotovo);
+	
+	JPanel prevadzka = new JPanel ();
+	frame.getContentPane().add(prevadzka, "Uvedenie do prevadzky");
+	prevadzka.add(neuspech);
+	prevadzka.add(zapojeny);
+	
+	//add(AktZamestnanec);
+	//add(Projektant);
+	//add(Kontrolor);
+	//add(Realizator);
+	//add(Instalater);
+	//add(Quit);
+	//pack();
+	
+
+	Projektant.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent event) {
+			System.out.println("Tlacitko 1 ide");
+			;
+		}
+	}
+	);
+	
+	Kontrolor.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent event) {
+			System.out.println("Tlacitko 2 ide");
+			;
+		}
+	}
+	);
+	
+	Realizator.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent event) {
+			System.out.println("Tlacitko 3 ide");
+			;
+		}
+	}
+	);
+	
+	Instalater.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent event) {
+			System.out.println("Tlacitko 4 ide");
+			;
+		}
+	}
+	);
+	/*
+	Quit.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent event) {
+			System.out.println("Tlacitko 5 ide");
+			;
+		}
+	}
+	);
+	*/
+}
+	
+
+}
+

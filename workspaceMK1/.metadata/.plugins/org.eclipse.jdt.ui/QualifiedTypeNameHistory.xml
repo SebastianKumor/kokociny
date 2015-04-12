@@ -2,4 +2,7 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="javaModel.Stav"/>
+<fullyQualifiedTypeName name="java.awt.EventQueue"/>
+<fullyQualifiedTypeName name="okinko.HlavneOkno"/>
+<fullyQualifiedTypeName name="javaModel.Suciastky"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,11 @@
+package javaModel;
+
+public class FinalneOverenie extends Stav{
+
+	public FinalneOverenie(boolean schvalene, boolean uspesnaKontrola,
+			boolean komponentyKupene) {
+		super(schvalene, uspesnaKontrola, komponentyKupene);
+		// TODO Auto-generated constructor stub
+	}
+
+}

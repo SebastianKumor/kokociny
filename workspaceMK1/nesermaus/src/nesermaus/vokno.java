@@ -27,33 +27,33 @@ public class vokno extends Composite {
 			public void widgetSelected(SelectionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(32, 182, 102, 82);
+		btnNewButton.setBounds(32, 97, 102, 82);
 		btnNewButton.setText("Projektant");
 		
 		Button btnOverenie = new Button(this, SWT.NONE);
-		btnOverenie.setBounds(140, 182, 102, 82);
+		btnOverenie.setBounds(140, 97, 102, 82);
 		btnOverenie.setText("Overenie");
 		
 		Button btnRealizacia = new Button(this, SWT.NONE);
-		btnRealizacia.setBounds(248, 182, 87, 82);
+		btnRealizacia.setBounds(248, 97, 87, 82);
 		btnRealizacia.setText("Realizacia");
 		
 		Button btnZavedenieDoPrevadzky = new Button(this, SWT.NONE);
-		btnZavedenieDoPrevadzky.setBounds(341, 182, 185, 82);
+		btnZavedenieDoPrevadzky.setBounds(341, 97, 185, 82);
 		btnZavedenieDoPrevadzky.setText("Zavedenie do  prevadzky");
 		
 		Label lblZadajteSvojePracovnu = new Label(this, SWT.NONE);
 		lblZadajteSvojePracovnu.setFont(SWTResourceManager.getFont("Segoe UI", 15, SWT.ITALIC));
-		lblZadajteSvojePracovnu.setBounds(32, 47, 273, 44);
+		lblZadajteSvojePracovnu.setBounds(27, 10, 273, 44);
 		lblZadajteSvojePracovnu.setText("Zadajte svoje pracovnu poziciu");		
 		
 		Label lblAktualnyStav = new Label(this, SWT.NONE);
 		lblAktualnyStav.setFont(SWTResourceManager.getFont("Segoe UI", 12, SWT.ITALIC));
-		lblAktualnyStav.setBounds(32, 293, 111, 30);
+		lblAktualnyStav.setBounds(32, 185, 111, 30);
 		lblAktualnyStav.setText("Aktualny Stav");
 		
 		ProgressBar progressBar = new ProgressBar(this, SWT.NONE);
-		progressBar.setBounds(32, 356, 170, 17);
+		progressBar.setBounds(168, 198, 170, 17);
 	}
 
 	@Override

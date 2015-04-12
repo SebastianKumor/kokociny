@@ -1,0 +1,157 @@
+package rozhranie;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+
+public class HlavneOkno extends JFrame{
+	
+	private JFrame frame;
+	private JLabel AktZamestnanec = new JLabel("Vyberte napln vasho pracovneho pomeru");
+	private JButton bProjektant = new JButton("Projektant");
+	private JButton bKontrolor = new JButton("Kontrolor");
+	private JButton bRealizator = new JButton("Realizator");
+	private JButton bInstalater = new JButton("Instalater");
+	private JButton bProjektujem = new JButton("Projektujem");
+	private JButton bPhotovy = new JButton("Projekt Hotovy");
+	private JButton bKontrolaN = new JButton("Projekt kontrolou nepresiel");
+	private JButton bKontrolaA = new JButton("Projekt kontrolou presiel");
+	private JButton bZacala = new JButton("Realizacia Prebieha");
+	private JButton bHotovo = new JButton("Projekt je zrealizovany");
+	private JButton bNeuspech = new JButton("Projekt este nebol uvedeny do prevadzky");
+	private JButton bZapojeny = new JButton("Projekt bol uvedeny do prevadzky");
+	private JPanel hlavneOkno;
+	private JPanel projektant;
+	private JPanel kontrola;
+	private JPanel realizacia;
+	private JPanel prevadzka;
+	//private JButton Quit = new JButton("Vypni Program");
+	//private JTextField textField;
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			
+			public void run() 
+			{
+				HlavneOkno guic = new HlavneOkno();
+				guic.frame.setVisible(true);
+			}
+		});
+	}
+
+	public HlavneOkno() { 
+		okno();
+	}
+	
+	private void okno() {
+	frame = new JFrame();
+	frame.setLayout(new GridLayout(5,4,5,10));
+	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	//frame.setSize(500,500);
+
+	JPanel hlavneMenu = new JPanel();
+	frame.getContentPane().add(hlavneMenu, "Electricus");
+	//hlavneMenu.setLayout(null);
+	
+	hlavneMenu.add(AktZamestnanec);
+	hlavneMenu.add(bProjektant);
+	hlavneMenu.add(bKontrolor);
+	hlavneMenu.add(bRealizator);
+	hlavneMenu.add(bInstalater);
+	hlavneMenu.setVisible(true);
+	
+	bProjektant.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent arg0)
+		{
+			projektant.setVisible(true);
+			hlavneOkno.setVisible(false);
+			kontrola.setVisible(false);
+			realizacia.setVisible(false);
+			prevadzka.setVisible(false);
+		}
+	});
+	
+	JPanel projektant = new JPanel();
+	frame.getContentPane().add(projektant, "Projektant");
+	projektant.add(bProjektujem);
+	projektant.add(bPhotovy);
+	projektant.setVisible(false);
+	
+	JPanel kontrolor = new JPanel();
+	frame.getContentPane().add(kontrolor, "Kontrolor");
+	kontrolor.add(bKontrolaN);
+	kontrolor.add(bKontrolaA);
+	projektant.setVisible(false);
+	
+	JPanel realizacia = new JPanel();
+	frame.getContentPane().add(realizacia, "Realizacia");
+	realizacia.add(bZacala);
+	realizacia.add(bHotovo);
+	projektant.setVisible(false);
+	
+	JPanel prevadzka = new JPanel ();
+	frame.getContentPane().add(prevadzka, "Uvedenie do prevadzky");
+	prevadzka.add(bNeuspech);
+	prevadzka.add(bZapojeny);
+	projektant.setVisible(false);
+
+	//add(AktZamestnanec);
+	//add(Projektant);
+	//add(Kontrolor);
+	//add(Realizator);
+	//add(Instalater);
+	//add(Quit);
+	//pack();
+	
+/*
+	Projektant.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent event) {
+			System.out.println("Tlacitko 1 ide");
+			;
+		}
+	}
+	);
+	
+	Kontrolor.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent event) {
+			System.out.println("Tlacitko 2 ide");
+			;
+		}
+	}
+	);
+	
+	Realizator.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent event) {
+			System.out.println("Tlacitko 3 ide");
+			;
+		}
+	}
+	);
+	
+	Instalater.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent event) {
+			System.out.println("Tlacitko 4 ide");
+			;
+		}
+	}
+	);
+	
+	Quit.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent event) {
+			System.out.println("Tlacitko 5 ide");
+			;
+		}
+	}
+	);
+	*/
+}
+	
+
+}
+
