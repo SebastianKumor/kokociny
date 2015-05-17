@@ -133,7 +133,6 @@ public class HlavneOkno extends JFrame{
 	});
 	
 	final JTextArea konzola = new JTextArea(3,25);
-	//konzola.setHorizontalAlignment(konzola.CENTER);
 	hlavneMenu.add(konzola);
 	konzola.setVisible(true);
     konzola.setFont(new Font("monospaced",Font.BOLD,16));
@@ -148,8 +147,7 @@ public class HlavneOkno extends JFrame{
 			String text = pocSuciastok.getText();
 			int Integris = Integer.parseInt(text); 
 			pocetSuciastok.setPocet(Integris);
-			
-			System.out.println(pocetSuciastok.Pocet); // este to dakde vypis
+			 // este to dakde vypis
 		}
 	});
 	
@@ -163,7 +161,7 @@ public class HlavneOkno extends JFrame{
 	najtop.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent event) {
 			//String dSuc = Integer.toString(fajneSuc.Cena);
-			fajneSuc.setCena(pocetSuciastok.Pocet);
+		//	fajneSuc.setCena(pocetSuciastok.Pocet);
 			konzola.setText(Integer.toString(fajneSuc.Cena));
 			
 		}

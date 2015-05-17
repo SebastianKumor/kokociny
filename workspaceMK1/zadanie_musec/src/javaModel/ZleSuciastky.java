@@ -3,8 +3,9 @@ package javaModel;
 public class ZleSuciastky extends Suciastky {	
 	
 		@Override
-		public void setCena(int Cena)
+		public int setCena(int Cena)
 		{
-			Cena=(Cena + (Pocet*50));
+			Cena=(5000 + (Pocet*50));
+			return Cena;
 		}
 }

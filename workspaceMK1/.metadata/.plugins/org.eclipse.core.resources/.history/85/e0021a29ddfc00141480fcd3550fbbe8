@@ -1,0 +1,42 @@
+package javaModel;
+
+import okinko.HlavneOkno;
+
+public class Suciastky {
+public int Pocet;
+//public int Cena = 5000;
+/*
+public Suciastky(int Id)
+{
+	this.Id = Id;
+}
+*/
+public int getPocet()
+{
+	return Pocet;
+}
+
+public void setPocet(int Pocet)
+{
+	this.Pocet=Pocet; 
+}	
+public int getCena()
+{
+	return Cena;
+}
+
+public void setCena(int Cena)
+{
+	this.Cena=Cena;
+}
+/*
+public boolean equals(Object obj)
+{
+	if(!(obj instanceof Suciastky))
+		return false;
+	
+	Suciastky other=(Suciastky) obj;
+	return Id ==(other.Id);
+}
+*/
+}

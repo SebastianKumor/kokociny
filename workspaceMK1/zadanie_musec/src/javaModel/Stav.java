@@ -14,12 +14,10 @@ public class Stav {
 	
 	public Stav()//boolean schvalene, boolean uspesnaKontrola,boolean komponentyKupene//)
 			{
-		
 		this.schvalene = false;
 		this.uspesnaKontrola = false;
 		this.komponentyKupene = false;
-		this.hotovyProjekt = false;
-		
+		this.hotovyProjekt = false;	
 	}
 	
 	public void setSchvalene(boolean schvalene){

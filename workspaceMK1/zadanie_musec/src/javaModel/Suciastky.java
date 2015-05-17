@@ -16,18 +16,22 @@ public int getPocet()
 	return Pocet;
 }
 
-public void setPocet(int Pocet)
+public int setPocet(int Pocet)
 {
 	this.Pocet=Pocet; 
+	System.out.println(Pocet);
+	return Pocet;
 }	
+
 public int getCena()
 {
 	return Cena;
 }
 
-public void setCena(int Cena)
+public int setCena(int Cena)
 {
 	this.Cena=Cena;
+	return Cena;
 }
 /*
 public boolean equals(Object obj)

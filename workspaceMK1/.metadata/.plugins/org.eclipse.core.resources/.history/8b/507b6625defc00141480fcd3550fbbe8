@@ -1,0 +1,17 @@
+package javaModel;
+
+public class DobreSuciastky extends Suciastky {
+	
+	@Override
+	public void setCena(int Cena)
+	{
+		Cena=(Cena +(Pocet*100));
+	}
+	
+	@Override
+	public void setPocet(int Pocet)
+	{
+		//this.Pocet=Pocet;
+		Cena=(5000 +(Pocet*150));
+	}	
+}
