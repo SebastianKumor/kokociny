@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 4 elements to &apos;Kislan/src&apos;&#x0D;&#x0A;- Original project: &apos;Kislan&apos;&#x0D;&#x0A;- Destination element: &apos;Kislan/src&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     senzors&#x0D;&#x0A;     threads&#x0D;&#x0A;     gui&#x0D;&#x0A;     main&#x0D;&#x0A;- Update references to refactored element" description="Move folders" destination="/src" element1="senzors" element2="threads" element3="gui" element4="main" files="0" flags="589830" folders="4" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1431702565439" units="0" version="1.0"/>
+</session>

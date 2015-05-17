@@ -2,11 +2,11 @@ package okinko;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.OutputStream;
+
 import javax.swing.*;
-import javaModel.Stav;
-import javaModel.DobreSuciastky;
-import javaModel.ZleSuciastky;
-import javaModel.Suciastky;
+
+import javaModel.*;
 
 
 public class HlavneOkno extends JFrame{
@@ -16,47 +16,11 @@ public class HlavneOkno extends JFrame{
 	private Stav stav2= new Stav();
 	private Stav stav3 = new Stav();
 	private Stav stav4 = new Stav();
+	private Suciastky pocetSuciastok = new Suciastky();
+	private DobreSuciastky fajneSuc = new DobreSuciastky();
+	private ZleSuciastky nanicSuc = new ZleSuciastky();
 	
-
-	//private JButton Quit = new JButton("Vypni Program");
-	//private JTextField textField;
-
-	/*
-	public boolean getSchvalene(Stav stav)
-	{
-		return stav.getSchvalene();
-		
-	}
 	
-	public void setSchvalene(Stav stav, boolean b)
-	{
-		stav.setSchvalene(b);
-	}
-	
-	public boolean getUspesnaKontrola(Stav stav2)
-	{
-		return stav2.getUspesnaKontrola();
-	}
-	
-	public void setUspesnaKontrola(Stav stav2, boolean c)
-	{
-		stav2.setUspesnaKontrola(c);
-	}
-	public boolean getKomponentyKupene(Stav stav3)
-	{
-		return stav3.getKomponentyKupene();
-	}
-	
-	public void setKomponentyKupene(Stav stav3, boolean d)
-	{
-		stav3.setKomponentyKupene(d);
-	}
-	*/
-	/*
-	public Integer getCena(){
-	      return cena;
-	    }
-	*/
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
@@ -67,22 +31,35 @@ public class HlavneOkno extends JFrame{
 			}
 		});
 	}
+	
+	public abstract class JTextAreaOutputStream extends OutputStream
+	{
+	    private final JTextArea konzola;
+
+	    public JTextAreaOutputStream (JTextArea destination, JTextArea konzola)
+	    {
+	        if (destination == null)
+	            throw new IllegalArgumentException ("Destination is null");
+
+	        this.konzola = konzola;
+	    }
+	}
 
 	public HlavneOkno() { 
 		okno();
 	}
 	
-	private void okno() {
+	public void okno() {
 		
 	frame = new JFrame();
-	frame.getContentPane().setLayout(new GridLayout(6,6));
+	frame.getContentPane().setLayout(new GridLayout(5,3));
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	frame.setSize(300,500);
+	frame.setSize(350,600);
 
 	final JPanel hlavneMenu = new JPanel();
 	frame.getContentPane().add(hlavneMenu, "Electricus");
 	hlavneMenu.setVisible(true);
-	
+
 	final JPanel projektant = new JPanel();
 	frame.getContentPane().add(projektant, "Projektant");
 	projektant.setVisible(false);
@@ -98,12 +75,10 @@ public class HlavneOkno extends JFrame{
 	final JPanel prevadzka = new JPanel ();
 	frame.getContentPane().add(prevadzka, "Uvedenie do prevadzky");
 	prevadzka.setVisible(false);
-	
-	final JPanel nakup = new JPanel();
-	frame.getContentPane().add(nakup, "Nakup suciastok");
-	nakup.setVisible(true);
 
+	
 //-----------------------------------------------------------------------------------------------------------------	
+
 	final JButton bProjektant = new JButton("Projektant");
 	hlavneMenu.add(bProjektant);
 	bProjektant.addActionListener(new ActionListener() {
@@ -114,8 +89,10 @@ public class HlavneOkno extends JFrame{
 			prevadzka.setVisible(false);
 			projektant.setVisible(true);
 		}
+
 	});
 	
+
 	final JButton bKontrolor = new JButton("Kontrolor");
 	hlavneMenu.add(bKontrolor);
 	bKontrolor.addActionListener(new ActionListener() {
@@ -138,6 +115,7 @@ public class HlavneOkno extends JFrame{
 			realizacia.setVisible(true);
 			prevadzka.setVisible(false);
 			projektant.setVisible(false);
+		
 		}
 	});
 	
@@ -154,7 +132,53 @@ public class HlavneOkno extends JFrame{
 		}
 	});
 	
-	 
+	final JTextArea konzola = new JTextArea(3,25);
+	//konzola.setHorizontalAlignment(konzola.CENTER);
+	hlavneMenu.add(konzola);
+	konzola.setVisible(true);
+    konzola.setFont(new Font("monospaced",Font.BOLD,16));
+    konzola.setEditable(false);
+    
+
+	final JTextField pocSuciastok = new JTextField("Zadajte pocet potrebnych suciastok");
+	projektant.add(pocSuciastok);
+	pocSuciastok.addActionListener(new ActionListener(){
+		public void actionPerformed(ActionEvent textBox)
+		{
+			String text = pocSuciastok.getText();
+			int Integris = Integer.parseInt(text); 
+			pocetSuciastok.setPocet(Integris);
+			
+			System.out.println(pocetSuciastok.Pocet); // este to dakde vypis
+		}
+	});
+	
+	final JTextArea labelatko = new JTextArea(2,5);
+	projektant.add(labelatko);
+	labelatko.setText("Zadajte kvalitu suciastok");
+	labelatko.setEditable(false);
+	
+	final JButton najtop = new JButton("1.Trieda");
+	projektant.add(najtop);
+	najtop.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent event) {
+			//String dSuc = Integer.toString(fajneSuc.Cena);
+			fajneSuc.setCena(pocetSuciastok.Pocet);
+			konzola.setText(Integer.toString(fajneSuc.Cena));
+			
+		}
+	});
+	
+	
+	final JButton horsie = new JButton("2.Trieda");
+	projektant.add(horsie);
+	horsie.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent event) {
+				 
+				 //zlesuciastky
+		}
+	});
+	
 	final JButton bProjektujem = new JButton("Projektujem");
 	projektant.add(bProjektujem);
 	bProjektujem.addActionListener(new ActionListener() {
@@ -163,9 +187,9 @@ public class HlavneOkno extends JFrame{
 				if(!stav.getSchvalene()){	
 					projektant.setVisible(false);;
 				};
-				System.out.println("Dokoncite projektovanie");
-		}
+				konzola.setText("Dokoncite projektovanie");		}
 	});
+	
 	
 	final JButton bPhotovy = new JButton("Projekt Hotovy");
 	projektant.add(bPhotovy);
@@ -181,7 +205,7 @@ public class HlavneOkno extends JFrame{
 	kontrolor.add(bKontrolaN);
 	bKontrolaN.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent event) {
-				
+				konzola.setText("Napravte projektovanie");
 			/*
 				if(!stav.getSchvalene()){
 					bKontrolaN.setEnabled(false);
@@ -225,7 +249,7 @@ public class HlavneOkno extends JFrame{
 				if(!stav3.getKomponentyKupene()){	
 					realizacia.setVisible(false);;
 				};
-				System.out.println("Dokoncite realizaciu");
+				konzola.setText("Dokoncite realizaciu");
 		}
 	});
 	
@@ -245,7 +269,7 @@ public class HlavneOkno extends JFrame{
 				if(!stav4.getHotovyProjekt()){	
 					prevadzka.setVisible(false);
 				};
-				System.out.println("Dokoncite zavedenie do prevadzky");
+				konzola.setText("Dokoncite zavedenie do prevadzky");
 		}
 	});
 	
@@ -255,24 +279,9 @@ public class HlavneOkno extends JFrame{
 		public void actionPerformed(ActionEvent event) {
 				 stav4.setHotovyProjekt(true);
 				 System.out.println("Stav 4 sa zmenil");
+				 konzola.setText("Projekt bol dokonceny");
 		}
 	});
 
-	final JButton bDobreSuciastky = new JButton("Dobre Suciastky"); 
-	nakup.add(bDobreSuciastky);
-	bDobreSuciastky.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent event) {
-				// System.out.println("Dobre suciastky");
-		}
-	});
-	
-	final JButton bZleSuciastky = new JButton("Zle Suciastky"); 
-	nakup.add(bZleSuciastky);
-	bZleSuciastky.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent event) {
-			//	 System.out.println(cena);
-		}
-	});
-	
 	}
 }

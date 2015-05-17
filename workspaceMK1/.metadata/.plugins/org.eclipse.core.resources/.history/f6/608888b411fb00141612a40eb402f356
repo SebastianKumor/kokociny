@@ -1,0 +1,19 @@
+package okinko;
+import javax.swing.*;
+
+public class Prevadzka extends JFrame{
+	
+	private static HlavneOkno hlavneOkno;
+
+	//hlavneOkno = ((Window)hlavneOkno);
+	
+	public static void Visible(){
+		
+		(HlavneOkno.projektant).setVisible(false);
+		(HlavneOkno.kontrolor).setVisible(false);
+		(HlavneOkno.prevadzka).setVisible(true);
+		(HlavneOkno.realizator).setVisible(false);
+	}
+}
+
+

@@ -1,0 +1,23 @@
+package javaModel;
+//import java.awt.Window;
+
+import okinko.HlavneOkno;
+
+import javax.swing.*;
+
+public class Projektant extends JFrame{
+	
+	//private static HlavneOkno hlavneOkno;
+
+	//hlavneOkno = ((Window)hlavneOkno);
+	
+	public static void Visible(){
+		//HlavneOkno.setVisible(true);
+		
+		System.out.println("Projektovanie nejde");
+		HlavneOkno.projektant.setVisible(true);
+		HlavneOkno.kontrolor.setVisible(false);
+		HlavneOkno.prevadzka.setVisible(false);
+		HlavneOkno.realizator.setVisible(false);
+	}
+}

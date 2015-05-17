@@ -1,0 +1,20 @@
+package javaModel;
+
+import javax.swing.*;
+
+
+public class Realizator extends JFrame {
+	
+	private static HlavneOkno hlavneOkno;
+
+	//hlavneOkno = ((Window)hlavneOkno);
+	
+	public static void Visible(){
+		
+		(HlavneOkno.projektant).setVisible(false);
+		(HlavneOkno.kontrolor).setVisible(false);
+		(HlavneOkno.prevadzka).setVisible(false);
+		(HlavneOkno.realizator).setVisible(true);
+	}
+}
+

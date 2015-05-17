@@ -10,6 +10,7 @@ public class Stav {
 	private boolean hotovyProjekt;
 	
 	
+	private Suciastky nah = new Suciastky(); // akoze agregacia davat dakych viac classov do skine dake kable suciastky keketiny
 	
 	public Stav()//boolean schvalene, boolean uspesnaKontrola,boolean komponentyKupene//)
 			{

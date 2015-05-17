@@ -1,0 +1,22 @@
+package okinko;
+import javax.swing.*;
+
+public class Kontrolor extends JFrame {
+	
+	private static HlavneOkno hlavneOkno;
+
+	//hlavneOkno = ((Window)hlavneOkno);
+	
+	public static void Visible(){
+		
+		//
+		System.out.println("Ja Neviem us");
+		
+		(HlavneOkno.projektant).setVisible(false);
+		(HlavneOkno.kontrolor).setVisible(true);
+		(HlavneOkno.prevadzka).setVisible(false);
+		(HlavneOkno.realizator).setVisible(false);
+		
+		
+	}
+}
