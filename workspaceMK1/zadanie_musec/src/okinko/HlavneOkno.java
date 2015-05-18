@@ -9,16 +9,9 @@ import javax.swing.*;
 import javaModel.*;
 
 
-public class HlavneOkno extends JFrame{
+public class HlavneOkno extends JFrame implements Objekty{
 	
-	private JFrame frame;
-	private Stav stav = new Stav();
-	private Stav stav2= new Stav();
-	private Stav stav3 = new Stav();
-	private Stav stav4 = new Stav();
-	private Suciastky pocetSuciastok = new Suciastky();
-	private DobreSuciastky fajneSuc = new DobreSuciastky();
-	private ZleSuciastky nanicSuc = new ZleSuciastky();
+	public JFrame frame;
 	
 	
 	public static void main(String[] args) {
@@ -143,7 +136,7 @@ public class HlavneOkno extends JFrame{
 	projektant.add(pocSuciastok);
 	pocSuciastok.addActionListener(new ActionListener(){
 		public void actionPerformed(ActionEvent textBox)
-		{
+		{	
 			String text = pocSuciastok.getText();
 			int Integris = Integer.parseInt(text); 
 			pocetSuciastok.setPocet(Integris);
@@ -156,13 +149,14 @@ public class HlavneOkno extends JFrame{
 	labelatko.setText("Zadajte kvalitu suciastok");
 	labelatko.setEditable(false);
 	
+		
 	final JButton najtop = new JButton("1.Trieda");
 	projektant.add(najtop);
 	najtop.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent event) {
 			//String dSuc = Integer.toString(fajneSuc.Cena);
-		//	fajneSuc.setCena(pocetSuciastok.Pocet);
-			konzola.setText(Integer.toString(fajneSuc.Cena));
+			int result = fajneSuc.Cena*pocetSuciastok.Pocet;
+			konzola.setText(Integer.toString(result));/// sucet  fajneSuc.Cena
 			
 		}
 	});
@@ -177,77 +171,89 @@ public class HlavneOkno extends JFrame{
 		}
 	});
 	
-	final JButton bProjektujem = new JButton("Projektujem");
+	final JButton bProjektujem = new JButton("Projektujem"); // tlacidlo projektujem
 	projektant.add(bProjektujem);
 	bProjektujem.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent event) {
 				
 				if(!stav.getSchvalene()){	
-					projektant.setVisible(false);;
-				};
-				konzola.setText("Dokoncite projektovanie");		}
+					projektant.setVisible(false);
+				}
+				else{
+				projektant.setVisible(false);
+				konzola.setText("Dokoncite projektovanie");		
+				}
+			}
 	});
 	
 	
-	final JButton bPhotovy = new JButton("Projekt Hotovy");
+	final JButton bPhotovy = new JButton("Projekt Hotovy"); // tlacidlo dokoncenia projektovania 
 	projektant.add(bPhotovy);
 	bPhotovy.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent event) {
-				 stav.setSchvalene(true);
-				 System.out.println("Stav sa zmenil");
+			if(pocetSuciastok.Pocet!=0)	 { 
+			stav.setSchvalene(true);
+			projektant.setVisible(false);
+			System.out.println("Stav sa zmenil");
+			}
+			else{
+			konzola.setText("Zadajte pocet suciastok");// ukazovat aktualny stav dakde
+			}
 		}
 	});
 	 
 	
-	final JButton bKontrolaN = new JButton("Projekt kontrolou nepresiel");
+	final JButton bKontrolaN = new JButton("Projekt kontrolou nepresiel"); // tlacidlo neuspesnej kontroly
 	kontrolor.add(bKontrolaN);
 	bKontrolaN.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent event) {
 				konzola.setText("Napravte projektovanie");
-			/*
+			
 				if(!stav.getSchvalene()){
-					bKontrolaN.setEnabled(false);
+					kontrolor.setVisible(false);
+					System.out.println("Projektovanie je nedokoncene");  
 				}
-				System.out.println("Projektovanie je nedokoncene");
-				
-				if(!stav2.getUspesnaKontrola()){
-					System.out.println("Neuspesna Kontrola");
-					bKontrolaN.setEnabled(false);
+				else{
+					System.out.println("Projektovanie je nedokoncene");
+					kontrolor.setVisible(false);
 				}
-				*/
 		}
 	});
 	
-	final JButton bKontrolaA = new JButton("Projekt kontrolou presiel"); // disabled pokial schvalene nepojde 
+	final JButton bKontrolaA = new JButton("Projekt kontrolou presiel"); // tlacidlo dokoncenia kontroly
 	kontrolor.add(bKontrolaA);
 	bKontrolaA.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent event) {
 			
-			/*if(!stav.getSchvalene()){
-				bKontrolaA.setEnabled(false);
+			if(!stav.getSchvalene()){
+				kontrolor.setVisible(false);
+				System.out.println("Projektovanie je nedokoncene");  
 			}
-			if(!stav2.getUspesnaKontrola()){
-				System.out.println("Neuspesna Kontrola");
-				bKontrolaA.setEnabled(false);
-			}
-			*/
-		
-				//bKontrolaA.setEnabled(true);
+			else{
 				 stav2.setUspesnaKontrola(true);
-				 System.out.println("Stav 2 sa zmenil");
-			
+				 kontrolor.setVisible(false);
+				 System.out.println("Stav 2 sa zmenil"); // vypisat na aktualny stav
+			}
 		}
 	});
 	
-	final JButton bZacala = new JButton("Realizacia Prebieha");
+	final JButton bZacala = new JButton("Realizacia Prebieha"); // tlacidlo realizacie projektu
 	realizacia.add(bZacala);
 	bZacala.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent event) {
 				
-				if(!stav3.getKomponentyKupene()){	
-					realizacia.setVisible(false);;
-				};
-				konzola.setText("Dokoncite realizaciu");
+			if(!stav.getSchvalene()){
+				realizacia.setVisible(false);
+				System.out.println("Projektovanie je nedokoncene");  
+			}
+			if(!stav2.getUspesnaKontrola()){
+				System.out.println("Neuspesna Kontrola");
+				realizacia.setVisible(false);
+			}
+			else{
+				System.out.println("Dokoncite Realizaciu");
+				realizacia.setVisible(false);
+			}
 		}
 	});
 	
@@ -255,8 +261,19 @@ public class HlavneOkno extends JFrame{
 	realizacia.add(bHotovo);
 	bHotovo.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent event) {
-				 stav3.setKomponentyKupene(true);
+			if(!stav.getSchvalene()){
+				realizacia.setVisible(false);
+				System.out.println("Projektovanie je nedokoncene");  
+			}
+			if(!stav2.getUspesnaKontrola()){
+				System.out.println("Neuspesna Kontrola");
+				realizacia.setVisible(false);
+			}
+			else{
+				 stav3.setRealizacia(true);
+				 realizacia.setVisible(false);
 				 System.out.println("Stav 3 sa zmenil");
+			}
 		}
 	});
 
@@ -264,10 +281,22 @@ public class HlavneOkno extends JFrame{
 	prevadzka.add(bNeuspech);
 	bNeuspech.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent event) {
-				if(!stav4.getHotovyProjekt()){	
-					prevadzka.setVisible(false);
-				};
-				konzola.setText("Dokoncite zavedenie do prevadzky");
+			if(!stav.getSchvalene()){
+				prevadzka.setVisible(false);
+				System.out.println("Projektovanie je nedokoncene");  
+			}
+			if(!stav2.getUspesnaKontrola()){
+				System.out.println("Neuspesna Kontrola");
+				prevadzka.setVisible(false);
+			}
+			if(!stav3.getRealizacia()){
+				System.out.println("Dokoncite realizaciu");
+				prevadzka.setVisible(false);
+			}
+			else{
+				System.out.println("Uvedte projekt do prevazky");
+				prevadzka.setVisible(false);
+			}
 		}
 	});
 	
@@ -275,9 +304,24 @@ public class HlavneOkno extends JFrame{
 	prevadzka.add(bZapojeny);
 	bZapojeny.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent event) {
+			if(!stav.getSchvalene()){
+				prevadzka.setVisible(false);
+				System.out.println("Projektovanie je nedokoncene");  
+			}
+			if(!stav2.getUspesnaKontrola()){
+				System.out.println("Neuspesna Kontrola");
+				prevadzka.setVisible(false);
+			}
+			if(!stav3.getRealizacia()){
+				System.out.println("Dokoncite realizaciu");
+				prevadzka.setVisible(false);
+			}	
+			else{
 				 stav4.setHotovyProjekt(true);
+				 prevadzka.setVisible(false);
 				 System.out.println("Stav 4 sa zmenil");
 				 konzola.setText("Projekt bol dokonceny");
+			}
 		}
 	});
 

@@ -6,7 +6,7 @@ public class Stav {
 
 	private boolean schvalene;
 	private boolean uspesnaKontrola;
-	private boolean komponentyKupene;
+	private boolean realizacia;
 	private boolean hotovyProjekt;
 	
 	
@@ -16,7 +16,7 @@ public class Stav {
 			{
 		this.schvalene = false;
 		this.uspesnaKontrola = false;
-		this.komponentyKupene = false;
+		this.realizacia = false;
 		this.hotovyProjekt = false;	
 	}
 	
@@ -31,9 +31,9 @@ public class Stav {
 		
 	}
 	
-	public void setKomponentyKupene(boolean komponentyKupene){
+	public void setRealizacia(boolean komponentyKupene){
 		
-		this.komponentyKupene = komponentyKupene; 
+		this.realizacia = realizacia; 
  	}
 	
 	public void setHotovyProjekt(boolean hotovyProjekt){
@@ -50,9 +50,9 @@ public class Stav {
 		return uspesnaKontrola;
 	}
 	
-	public boolean getKomponentyKupene(){
+	public boolean getRealizacia(){
 		
-		return komponentyKupene;	
+		return realizacia;	
 	}
 	
 	public boolean getHotovyProjekt(){
@@ -61,7 +61,7 @@ public class Stav {
 	}
 	
 	public boolean isEverythingOk(){
-	      return (schvalene && uspesnaKontrola && komponentyKupene && hotovyProjekt);
+	      return (schvalene && uspesnaKontrola && realizacia && hotovyProjekt);
 	   }
 	
 

@@ -1,0 +1,5 @@
+package okinko;
+
+public interface Objekty {
+
+}
