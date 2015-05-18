@@ -11,6 +11,7 @@ public class Stav {
 	
 	
 	private Suciastky nah = new Suciastky(); // akoze agregacia davat dakych viac classov do skine dake kable suciastky keketiny
+	int i = 	nah.getCena();
 	
 	public Stav()//boolean schvalene, boolean uspesnaKontrola,boolean komponentyKupene//)
 			{

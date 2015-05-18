@@ -1,0 +1,29 @@
+package okinko;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.io.OutputStream;
+import javax.swing.*;
+import javaModel.*;
+
+
+public class Metody extends HlavneOkno implements Objekty{
+
+	public static void bZzacala()
+	{
+	HlavneOkno jebem = new HlavneOkno();
+	
+		if(!stav.getSchvalene()){
+			jebem.setVisible(false);
+			System.out.println("Projektovanie je nedokoncene");  
+		}
+		if(!stav2.getUspesnaKontrola()){
+			System.out.println("Neuspesna Kontrola");
+			jebem.setVisible(false);
+		}
+		else{
+	 		System.out.println("Dokoncite Realizaciu");
+	 		jebem.setVisible(false);
+		}
+	}
+}

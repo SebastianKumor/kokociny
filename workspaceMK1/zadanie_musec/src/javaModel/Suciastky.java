@@ -4,13 +4,9 @@ import okinko.HlavneOkno;
 
 public class Suciastky {
 public int Pocet;
-public int Cena = 5000;
-/*
-public Suciastky(int Id)
-{
-	this.Id = Id;
-}
-*/
+public int Cena; // dat vsetko private 
+
+
 public int getPocet()
 {
 	return Pocet;
@@ -19,7 +15,7 @@ public int getPocet()
 public int setPocet(int Pocet)
 {
 	this.Pocet=Pocet; 
-	System.out.println(Pocet);
+	//System.out.println(Pocet);
 	return Pocet;
 }	
 
@@ -33,14 +29,5 @@ public int setCena(int Cena)
 	this.Cena=Cena;
 	return Cena;
 }
-/*
-public boolean equals(Object obj)
-{
-	if(!(obj instanceof Suciastky))
-		return false;
-	
-	Suciastky other=(Suciastky) obj;
-	return Id ==(other.Id);
-}
-*/
+
 }
