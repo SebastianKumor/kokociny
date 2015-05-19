@@ -1,13 +1,12 @@
 package javaModel;
 
 public class DobreSuciastky extends Suciastky {
-	
+
 	@Override
-	public int setCena(int Pocet)
+	public int setCena(int Pocet) // Vypocet ceny pre dobre suciastky
 	{
-		//this.Cena = Cena;
-		Cena=(5000 +(Pocet*100));
-	//(5000 +(Pocet*100));
+		Pocet = Suciastky.getPocet();
+		Cena = (Pocet * 500);
 		return Cena;
 	}
 }

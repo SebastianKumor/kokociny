@@ -3,31 +3,29 @@ package javaModel;
 import okinko.HlavneOkno;
 
 public class Suciastky {
-public int Pocet;
-public int Cena; // dat vsetko private 
+	protected static int Pocet;
+	protected int Cena; // dat vsetko private
 
+	public static int getPocet() // getter pre pocet
+	{
+		return Pocet;
+	}
 
-public int getPocet()
-{
-	return Pocet;
-}
+	public int setPocet(int Pocet) // setter pre pocet
+	{
+		Suciastky.Pocet = Pocet;
+		return Pocet;
+	}
 
-public int setPocet(int Pocet)
-{
-	this.Pocet=Pocet; 
-	//System.out.println(Pocet);
-	return Pocet;
-}	
+	public int getCena() // getter pre cenu
+	{
+		return Cena;
+	}
 
-public int getCena()
-{
-	return Cena;
-}
-
-public int setCena(int Cena)
-{
-	this.Cena=Cena;
-	return Cena;
-}
+	public int setCena(int Cena)// setter pre cenu
+	{
+		this.Cena = Cena;
+		return Cena;
+	}
 
 }

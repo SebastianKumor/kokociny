@@ -7,10 +7,10 @@ import javaModel.ZleSuciastky;
 
 import javax.swing.JFrame;
 
-public interface Objekty {
-	
+public interface Objekty { // interface obsahujuci objekty z gui
+
 	public Stav stav = new Stav();
-	public Stav stav2= new Stav();
+	public Stav stav2 = new Stav();
 	public Stav stav3 = new Stav();
 	public Stav stav4 = new Stav();
 	public Suciastky pocetSuciastok = new Suciastky();
