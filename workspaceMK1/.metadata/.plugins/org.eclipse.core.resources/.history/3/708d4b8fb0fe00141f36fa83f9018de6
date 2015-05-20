@@ -1,0 +1,20 @@
+package main;
+
+import gui.*;
+
+import java.awt.EventQueue;
+/** trieda obsahujuca metodu main */
+
+public class Main { //Main 
+	/** Metoda Main vola GUI*/
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				HlavneOkno guic = new HlavneOkno(); // vola gui
+				guic.frame.setVisible(true);
+			}
+		});
+	}
+}

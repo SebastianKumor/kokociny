@@ -1,0 +1,19 @@
+package javaModel;
+
+public class DobreSuciastky extends Suciastky {
+
+	@Override
+	public int setCena(int Pocet) // Vypocet ceny pre dobre suciastky v eurach
+	{
+		Pocet = Suciastky.getPocet();
+		Cena = (Pocet * 500);
+		return Cena;
+	}
+	public int setCas(int Pocet) // vypocet casu pre dobre suciastky v hodinach
+	{
+		Pocet = Suciastky.getPocet();
+		
+		CasPrac.cas=(Pocet*4);
+		return CasPrac.cas;
+	}
+}

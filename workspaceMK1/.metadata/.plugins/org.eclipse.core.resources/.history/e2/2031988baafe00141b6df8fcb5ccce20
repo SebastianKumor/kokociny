@@ -1,0 +1,30 @@
+package javaModel;
+
+public class CasPrac {// obsahuje cas potrebny na zostrojenie projektu
+	protected static int cas;
+ 
+	public CasPrac(int casik)
+	{
+		CasPrac.cas=casik;
+		/**
+		 * Cas
+		 */
+	}
+	
+	public int getCas() {
+		return cas;
+		/**
+		 * getter pre cas. Metoda obsahuje aktualny cas potrebny na dokoncenie projektu
+		 */
+	}
+
+	public void setCas(int Cas) {
+		CasPrac.cas = Cas;
+		/**
+		 * setter pre cas. Metoda nastavuje cas
+		 */
+	}
+
+	
+}
+

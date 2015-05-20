@@ -1,0 +1,153 @@
+package gui;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.io.OutputStream;
+
+import javax.swing.*;
+
+import javaModel.*;
+/** Trieda obsahuje logiku potrebnu na funkciu gui */	
+public class Controll extends HlavneOkno implements Objekty { // logicka cast gui
+										// GUI
+
+	/** vypisuje varovanie ze ma byt projektovanie dokoncene pripadne hadze vynimku pri zabudnuti zadania vstupu */
+	public static void bProjektN() { 
+		HlavneOkno projN = new HlavneOkno();
+
+		projN.setVisible(false);
+		if (Suciastky.getPocet() != 0) {
+			System.out.println("Dokoncite projektovanie");
+		} else {
+			throw new IllegalArgumentException("Nezadali ste pocet suciastok");  // vynimka v pripade ze nieje zadany pocet suciastok
+		}
+	}
+
+	/** pri splnenych podmienkach meni prvy stav, pripadne hadze vynimku pri zabudnuti zadania vstupu */
+	public static void bProjektD() {
+		HlavneOkno projD = new HlavneOkno();
+		if (Suciastky.getPocet() != 0) {
+			stav.setSchvalene(true);
+			projD.setVisible(false);
+			System.out.println("Projektovanie bolo dokoncene");
+		} else {
+			throw new IllegalArgumentException("Nezadali ste pocet suciastok");  // vynimka v pripade ze nieje zadany pocet suciastok
+		}
+	}
+	
+	/** pri splneni podmienok vypisuje varovanie nedokocenia predchadzajucej prace pripadne varuje nech dokoncite svoju pracu*/
+	public static void bKontrolaN() {
+		HlavneOkno kontrN = new HlavneOkno();
+
+		if (!stav.getSchvalene()) {
+			kontrN.setVisible(false);
+			System.out.println("Projektovanie je nedokoncene");
+		} else {
+			kontrN.setVisible(false);
+			System.out.println("Skontrolujte novu verziu");
+		}
+		kontrN.setVisible(false);
+	}
+
+	/** pri splneni podmienok vypisuje varovanie nedokoncenia projektovania alebo meni druhy stav na dokonceny*/
+	public static void bKontrolaP() {
+		HlavneOkno kontrP = new HlavneOkno();
+
+		if (!stav.getSchvalene()) {
+			kontrP.setVisible(false);
+			System.out.println("Projektovanie je nedokoncene");
+		} else {
+			stav2.setUspesnaKontrola(true);
+			kontrP.setVisible(false);
+			System.out.println("Kontrola prebehla uspesne");
+		}
+	}
+	
+	/** pri splneni podmienok vypisuje varovanie ze nieje dokoncena predchadzajuca alebo aktualna cinnost*/
+	public static void bRzacala() {
+		HlavneOkno realN = new HlavneOkno();
+
+		if (!stav.getSchvalene()) {
+			realN.setVisible(false);
+			System.out.println("Projektovanie je nedokoncene");
+		}
+		if (!stav2.getUspesnaKontrola()) {
+			System.out.println("Neuspesna Kontrola");
+			realN.setVisible(false);
+		} else {
+			System.out.println("Dokoncite Realizaciu");
+			realN.setVisible(false);
+		}
+	}
+
+	/** pri splneni podmienok vypisuje varovanie ze nieje dokoncena predchadzajuca alebo sa smeni treti stav na splneny*/
+	public static void bRskoncila() {
+		HlavneOkno realD = new HlavneOkno();
+
+		if (!stav.getSchvalene()) {
+			realD.setVisible(false);
+			System.out.println("Projektovanie je nedokoncene");
+		}
+		if (!stav2.getUspesnaKontrola()) {
+			System.out.println("Neuspesna Kontrola");
+			realD.setVisible(false);
+		} else {
+			stav3.setRealizacia(true);
+			realD.setVisible(false);
+			System.out.println("Realizacia bola dokoncena");
+		}
+	}
+
+	/** pri splneni podmienok vypisuje varovanie ze nieje dokoncena predchadzajuca alebo aktualna cinnost*/
+	public static void bPrevadzkaN() {
+		HlavneOkno prevN = new HlavneOkno();
+
+		if (!stav.getSchvalene()) {
+			prevN.setVisible(false);
+			System.out.println("Projektovanie je nedokoncene");
+		}
+		if (!stav2.getUspesnaKontrola()) {
+			System.out.println("Neuspesna Kontrola");
+			prevN.setVisible(false);
+		}
+		if (!stav3.getRealizacia()) {
+			System.out.println("Dokoncite realizaciu");
+			prevN.setVisible(false);
+		} else {
+			System.out.println("Uvedte projekt do prevazky");
+			prevN.setVisible(false);
+		}
+
+	}
+	/** pri splneni podmienok vypisuje varovanie ze nieje dokoncena predchadzajuca alebo sa smeni stvry stav na splneny*/
+	public static void bPrevadzkaD() {
+		//HlavneOkno prevD = new HlavneOkno();
+
+		if (!stav.getSchvalene()) {
+			//prevD.setVisible(false);
+			System.out.println("Projektovanie je nedokoncene");
+		}
+		if (!stav2.getUspesnaKontrola()) {
+			System.out.println("Neuspesna Kontrola");
+			//prevD.setVisible(false);
+		}
+		if (!stav3.getRealizacia()) {
+			System.out.println("Dokoncite realizaciu");
+			//prevD.setVisible(false);
+		} else {
+			stav4.setHotovyProjekt(true);
+			//prevD.setVisible(false);
+			System.out.println("Projekt bol uvedeny do prevadzky");
+		}
+	}
+
+	/** Priradenie hodnoty poctu suciastok podla vstupu zamestnanca
+	 * @param text retazec obsahujuci pocet suciastok
+	 * @return pocet suciastok prekonvertovany zo stringu na int*/
+	public static int ratajSuc(String text) {
+		int Integris = Integer.parseInt(text);
+		pocetSuciastok.setPocet(Integris);
+		
+		return Integris;
+	}
+}

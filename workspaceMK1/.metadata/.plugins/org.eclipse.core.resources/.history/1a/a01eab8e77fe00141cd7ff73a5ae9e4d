@@ -1,0 +1,24 @@
+package javaModel;
+
+import javaModel.CasPrac;
+
+
+
+public class CasPrac {
+	static int cas;
+ 
+	public CasPrac(int casik)
+	{
+		this.cas=casik;
+		
+	}
+	
+	public int getCas() {
+		return cas;
+	}
+
+	public void setCas(int Cas) {
+		CasPrac.cas = Cas;
+	}
+
+}

@@ -1,0 +1,21 @@
+package javaModel;
+
+
+public class ZleSuciastky extends Suciastky {
+
+	@Override
+	public int setCena(int Pocet) // Vypocet Ceny pre zle suciastky
+	{
+		Pocet = Suciastky.getPocet();
+		Cena = (Pocet * 350);
+		return Cena;
+	}
+	
+	public int setCas(int Pocet)
+	{
+		Pocet = Suciastky.getPocet();
+		
+		CasPrac.cas=(Pocet*5);
+		return CasPrac.cas;
+	}
+}

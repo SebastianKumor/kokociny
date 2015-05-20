@@ -1,23 +1,22 @@
 package javaModel;
 
-import okinko.HlavneOkno;
+/** Trieda obsahuje stav projektu v privatnych boolean premennych
+ * @author Matus Mucha*/
 
-public class Stav { // class obsahujuci informacie ohladom aktualneho stavu
-					// projektu
-
+public class Stav { // class obsahujuci informacie ohladom aktualneho stavu projektu
 	private boolean schvalene;
 	private boolean uspesnaKontrola;
 	private boolean realizacia;
 	private boolean hotovyProjekt;
 
-	private Suciastky nah = new Suciastky(); // akoze agregacia davat dakych
-												// viac classov do skine dake
-												// kable suciastky keketiny
-	int i = nah.getCena(); // este pouzijeme
+	private Suciastky nah = new Suciastky(); 
 
-	public Stav()// boolean schvalene, boolean uspesnaKontrola,boolean
-					// komponentyKupene//)
+	/** definicia boolovych premennych*/
+	public Stav()
 	{
+		/**
+		 * 
+		 */
 		this.schvalene = false;
 		this.uspesnaKontrola = false;
 		this.realizacia = false;
@@ -33,10 +32,9 @@ public class Stav { // class obsahujuci informacie ohladom aktualneho stavu
 	public void setUspesnaKontrola(boolean uspesnaKontrola) {
 
 		this.uspesnaKontrola = uspesnaKontrola;
-
 	}
 
-	public void setRealizacia(boolean komponentyKupene) {
+	public void setRealizacia(boolean realizacia) {
 
 		this.realizacia = realizacia;
 	}
@@ -68,6 +66,14 @@ public class Stav { // class obsahujuci informacie ohladom aktualneho stavu
 
 	public boolean isEverythingOk() {
 		return (schvalene && uspesnaKontrola && realizacia && hotovyProjekt);
+	}
+
+	public Suciastky getNah() {
+		return nah;
+	}
+
+	public void setNah(Suciastky nah) {
+		this.nah = nah;
 	}
 
 }

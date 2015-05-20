@@ -1,0 +1,35 @@
+package javaModel;
+
+public class CasPrac {// obsahuje cas potrebny na zostrojenie projektu
+	/** Trieda obsahujuca metody na uchovavanie hodnoty casu a jej pripadne upravy */
+	
+	/** protected premenna typu int reprezentujuca cas potrebny pre jednu suciastku */
+	protected static int cas;
+ 
+	/**
+	 * Cas na naistalovanie komponentov
+	 */
+	public CasPrac(int casik)
+	{
+		CasPrac.cas=casik;
+	}
+	
+	/**
+	 * getter pre cas. Metoda obsahuje aktualny cas potrebny na dokoncenie projektu
+	 */
+	public int getCas() { 
+		return cas;
+		
+	}
+
+	/**
+	 * setter pre cas. Metoda nastavuje cas
+	 */
+	public void setCas(int Cas) {
+		CasPrac.cas = Cas;
+		
+	}
+
+	
+}
+
